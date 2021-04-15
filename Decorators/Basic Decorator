@@ -1,0 +1,22 @@
+def smart_divide(func):  # put the "divide" function in here as an input argument
+    def inner(a, b):  # Must have the same number of input variables as function def on line 13. Can be different names
+        print("I am going to divide", a, "and", b)
+        if b == 0:
+            print("Whoops! cannot divide")
+            return  # Code gets stopped as an error will happen
+
+        return func(a, b)
+    return inner  # Must always return any inner function or it will cause it to return type of none and get an error
+
+
+@smart_divide
+def divide(a, b):
+    print(a/b)
+
+divide(4,2)
+"""Will first go to line 13 where the function def is defined.
+It will note the decorator "@smart_divide" and say 'oh, let's go there first before executing the "divide" function.
+It then will go to line 1 and perform "smart divide" with the same parameters provided initially (4 and 2 in this case).
+
+Will give you 4/2 = 2"""
+#
