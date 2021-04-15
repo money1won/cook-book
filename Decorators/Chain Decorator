@@ -1,0 +1,34 @@
+# Read Basic Decorators
+def star(func):
+    def inner(*args, **kwargs):
+        print("*" * 30)
+        func(*args, **kwargs)  # Calling "Func" here goes on to the next decorator found on line 10
+        print("*" * 30)
+    return inner
+
+
+def percent(func):
+    def inner(*args, **kwargs):
+        print("%" * 30)
+        func(*args, **kwargs)  # Calling "Func" here goes on to the main function on line 20
+        print("%" * 30)
+    return inner
+
+
+@star  # Does this first
+@percent  # Then does this INSIDE of star
+def printer(msg):  # Then lastly does this
+    print(msg)
+
+
+# Basically, star calls percent. percent calls printer. printer completes and allows percent to complete. percent completes
+# then star completes.
+
+
+printer("Hello")
+
+# ******************************
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Hello
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# ******************************
