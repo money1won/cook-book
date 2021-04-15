@@ -5,7 +5,7 @@ def smart_divide(func):  # put the "divide" function in here as an input argumen
             print("Whoops! cannot divide")
             return  # Code gets stopped as an error will happen
 
-        return func(a, b)
+        return func(a, b)  # Performs the "divide" function on line 13
     return inner  # Must always return any inner function or it will cause it to return type of none and get an error
 
 
@@ -15,7 +15,7 @@ def divide(a, b):
 
 divide(4,2)
 """Will first go to line 13 where the function def is defined.
-It will note the decorator "@smart_divide" and say 'oh, let's go there first before executing the "divide" function.
+It will note the decorator "@smart_divide" and say 'oh, let's go there instead using "divide" as an input for that function.
 It then will go to line 1 and perform "smart divide" with the same parameters provided initially (4 and 2 in this case).
 
 Will give you 4/2 = 2"""
